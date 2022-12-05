@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "bca1a86d-1bd1-474a-816b-c8fb93043702",
+		"name": "Practica 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19592765"
+	},
+	"item": [
+		{
+			"name": "get /ListaDeUsarios-200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Prueba para validar el codigo de respuesta ",
+							"pm.test(\"Validar que el codigo de respuesta es un 200\", function(){",
+							"    pm.expect(pm.response.code).to.eql(200)",
+							"})",
+							"",
+							"pm.test(\"Validar que la respuesta tenga un body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Validar que la respuesta tenga todas las propiedades\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.page).to.exist",
+							"    pm.expect(responseJson.per_page).to.exist",
+							"    pm.expect(responseJson.total).to.exist",
+							"    pm.expect(responseJson.total_pages).to.exist",
+							"    pm.expect(responseJson.data).to.exist",
+							"    pm.expect(responseJson.support).to.exist",
+							"});",
+							"",
+							"pm.test(\"Validar el tamaño de la variabe body\", () =>{",
+							"     pm.expect(pm.response.size().body).to.equal(1030)",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get /LeerUsuarioConID - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el status code response es OK\", () =>{",
+							"    pm.response.to.have.status(\"OK\")",
+							"})",
+							"",
+							"pm.test(\"Validar que la respuesta tenga un body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"});",
+							"",
+							"pm.test(\"Validar que la respuesta tenga todas las propiedades\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.data).to.exist",
+							"    pm.expect(responseJson.data.id).to.exist",
+							"    pm.expect(responseJson.data.email).to.exist",
+							"    pm.expect(responseJson.data.first_name).to.exist",
+							"    pm.expect(responseJson.data.last_name).to.exist",
+							"    pm.expect(responseJson.data.avatar).to.exist",
+							"    pm.expect(responseJson.support).to.exist",
+							"});",
+							"",
+							"pm.test(\"Validar el tipo de dato de todas las propiedades de la respuesta\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.data).to.be.an(\"object\")",
+							"    pm.expect(responseJson.data.id).to.be.a(\"number\")",
+							"    pm.expect(responseJson.data.email).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.first_name).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.last_name).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.avatar).to.be.a(\"string\")",
+							"    pm.expect(responseJson.support).to.be.an(\"object\")",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post /CrearUsuario - 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Variables de ambiente ",
+							"var trabajo = pm.environment.get(\"trabajo\")",
+							"var nombre = pm.environment.get(\"nombre\")",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta es un 201\", function(){",
+							"    pm.expect(pm.response.code).to.eql(201)",
+							"})",
+							"",
+							"pm.test(\"Validar que todas las propiedades de la respuesta existan\", function(){",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.have.all.keys('name', 'job', 'id', 'createdAt');",
+							"})",
+							"",
+							"pm.test(\"Validar que las propiedades tengan el valor de la variable\", function(){",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.name).to.be.equal(nombre)",
+							"    pm.expect(responseJson.job).to.be.equal(trabajo)",
+							"})",
+							"",
+							"pm.test(\"Validar que el body no este vacio\", () =>{",
+							"     pm.expect(pm.response.body).not.to.be.null;",
+							"})",
+							"",
+							"pm.environment.set(\"id\", pm.response.json().id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var name = pm.variables.replaceIn(\"{{$randomFirstName}}\")",
+							"var job = pm.variables.replaceIn(\"{{$randomJobTitle}}\")",
+							"",
+							"//settear variables",
+							"pm.environment.set(\"nombre\", name);",
+							"pm.environment.set(\"trabajo\", job);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{nombre}}\",\n    \"job\": \"{{trabajo}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get /LeerUsuarioConID - 200 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta es un 200\", function(){",
+							"    pm.expect(pm.response.code).to.eql(200)",
+							"})",
+							"",
+							"pm.test(\"Validar que el campo token no es NULL\", () =>{",
+							"     pm.expect(pm.response.json().token).not.to.be.null;",
+							"})",
+							"",
+							"pm.test(\"Validar que la respuesta tenga todas las propiedades\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.data).to.exist",
+							"    pm.expect(responseJson.data.id).to.exist",
+							"    pm.expect(responseJson.data.email).to.exist",
+							"    pm.expect(responseJson.data.first_name).to.exist",
+							"    pm.expect(responseJson.data.last_name).to.exist",
+							"    pm.expect(responseJson.data.avatar).to.exist",
+							"    pm.expect(responseJson.support).to.exist",
+							"});",
+							"",
+							"pm.test(\"Validar el tipo de dato de todas las propiedades de la respuesta\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.data).to.be.an(\"object\")",
+							"    pm.expect(responseJson.data.id).to.be.a(\"number\")",
+							"    pm.expect(responseJson.data.email).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.first_name).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.last_name).to.be.a(\"string\")",
+							"    pm.expect(responseJson.data.avatar).to.be.a(\"string\")",
+							"    pm.expect(responseJson.support).to.be.an(\"object\")",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/{{id}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put /EditarUsuarioCreado - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var trabajo = pm.environment.get(\"trabajoActualizado\")",
+							"var nombre = pm.environment.get(\"nombreActualizado\")",
+							"",
+							"var schema = {",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"name\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"job\": {",
+							"      \"type\": \"string\"",
+							"    },",
+							"    \"updatedAt\": {",
+							"      \"type\": \"string\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"name\",",
+							"    \"job\",",
+							"    \"updatedAt\"",
+							"  ]",
+							"};",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta es un 200\", function(){",
+							"    pm.expect(pm.response.code).to.eql(200)",
+							"})",
+							"",
+							"pm.test(\"Validar que todas las propiedades de la respuesta existan\", function(){",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.have.all.keys('name', 'job', 'updatedAt');",
+							"})",
+							"",
+							"pm.test(\"Validar que las propiedades tengan el valor de la variable\", function(){",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.name).to.be.equal(nombre)",
+							"    pm.expect(responseJson.job).to.be.equal(trabajo)",
+							"})",
+							"",
+							"pm.test(\"Validar que el schema es correcto\", function(){",
+							"     pm.response.to.have.jsonSchema(schema);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var updatedName = pm.variables.replaceIn(\"{{$randomFirstName}}\")",
+							"var updatedJob = pm.variables.replaceIn(\"{{$randomJobTitle}}\")",
+							"",
+							"//settear variables",
+							"pm.environment.set(\"nombreActualizado\", updatedName);",
+							"pm.environment.set(\"trabajoActualizado\", updatedJob);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{nombreActualizado}}\",\n    \"job\": \"{{trabajoActualizado}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/{{id}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete /EliminarUsuarioCreado - 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar que el codigo de respuesta es un 204\", function(){",
+							"    pm.expect(pm.response.code).to.eql(204)",
+							"})",
+							"",
+							"pm.test(\"Validar que el body sea undefined\", () =>{",
+							"     pm.expect(pm.response.body).to.be.undefined;",
+							"})",
+							"",
+							"pm.test(\"Validar que el responseSize sea 0\", () =>{",
+							"     pm.expect(pm.response.responseSize).to.be.eql(0);",
+							"})",
+							"",
+							"pm.test(\"Validar que el header Content-Length sea 0\", () =>{",
+							"     pm.expect(pm.response.headers.get(\"Content-Length\")).to.eql('0')",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/{{id}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post /RegistrarUsuario - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"    \"id\": {",
+							"      \"type\": \"integer\"",
+							"    },",
+							"    \"token\": {",
+							"      \"type\": \"string\"",
+							"    }",
+							"  },",
+							"  \"required\": [",
+							"    \"id\",",
+							"    \"token\"",
+							"  ]",
+							"}",
+							"",
+							"pm.test(\"Validar que el codigo de respuesta es un 200\", function(){",
+							"    pm.expect(pm.response.code).to.eql(200)",
+							"})",
+							"",
+							"pm.test(\"Validar que todas las propiedades de la respuesta existan\", function(){",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson).to.have.all.keys('id', 'token');",
+							"})",
+							"",
+							"pm.test(\"Validar que el schema es correcto\", function(){",
+							"     pm.response.to.have.jsonSchema(schema);",
+							"})",
+							"",
+							"pm.test(\"Validar que el token es un string\", () =>{",
+							"     pm.expect(pm.response.json().token).to.be.a(\"string\")",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"eve.holt@reqres.in\",\n    \"password\": \"pistol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
