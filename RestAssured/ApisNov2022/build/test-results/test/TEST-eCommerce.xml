@@ -1,0 +1,1759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eCommerce" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-12-14T22:05:52" hostname="DianaAguilars-MacBook-Pro.local" time="28.292">
+  <properties/>
+  <testcase name="1 Test case: Validar el filtrado de categorias" classname="eCommerce" time="1.592"/>
+  <testcase name="2 Test case: Listado de Anuncios" classname="eCommerce" time="0.232"/>
+  <testcase name="3 Test case: Obtener información del usuario" classname="eCommerce" time="1.956"/>
+  <testcase name="4 Test case: Crear Usuario" classname="eCommerce" time="1.181"/>
+  <testcase name="5 Test case: Editar usuario" classname="eCommerce" time="2.1"/>
+  <testcase name="6 Test case: Crear un Anuncio" classname="eCommerce" time="4.312"/>
+  <testcase name="7 Test case: Ver un Anuncio" classname="eCommerce" time="0.14"/>
+  <testcase name="8 Test case: Editar un Anuncio" classname="eCommerce" time="3.933"/>
+  <testcase name="9 Test case: Crear alerta" classname="eCommerce" time="2.102"/>
+  <testcase name="10 Test case: Eliminar alerta" classname="eCommerce" time="1.638"/>
+  <testcase name="11 Test case: Crear Direccion" classname="eCommerce" time="1.95"/>
+  <testcase name="12 Test case: Ver Direccion" classname="eCommerce" time="1.914"/>
+  <testcase name="13 Test case: Editar Direccion" classname="eCommerce" time="2.023"/>
+  <testcase name="14 Test case: Ver Direccion despues de editar" classname="eCommerce" time="1.281"/>
+  <testcase name="15 Test case: Eliminar direccion" classname="eCommerce" time="1.906"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	https://webapi.segundamano.mx/urls/v1/public/ad-listing?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "filters": [
+        {
+            "price": "-60000",
+            "category": "2020"
+        },
+        {
+            "price": "60000-80000",
+            "category": "2020"
+        },
+        {
+            "price": "80000-100000",
+            "category": "2020"
+        },
+        {
+            "price": "100000-150000",
+            "category": "2020"
+        },
+        {
+            "price": "150000-",
+            "category": "2020"
+        }
+    ]
+}
+{
+    "data": {
+        "urls": [
+            "/anuncios/mexico/autos-y-camionetas?precio=-60000",
+            "/anuncios/mexico/autos-y-camionetas?precio=60000-80000",
+            "/anuncios/mexico/autos-y-camionetas?precio=80000-100000",
+            "/anuncios/mexico/autos-y-camionetas?precio=100000-150000",
+            "/anuncios/mexico/autos-y-camionetas?precio=150000-"
+        ]
+    }
+}
+Status response: 200
+Tiempo respuesta: 524
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/highlights/v1/public/highlights?prio=1&cat=2020&lim=1
+Proxy:			<none>
+Request params:	<none>
+Query params:	prio=1
+				cat=2020
+				lim=1
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "data": {
+        "items": [
+            {
+                "list_id": "/public/ads/939029533",
+                "subject": "204543 - Mazda CX5 2014 Con Garantía",
+                "thumbnail": {
+                    "base_url": "http://img.segundamano.mx",
+                    "media_id": "/public/media/ad/7258449370",
+                    "path": "72/7258449370.jpg"
+                },
+                "prices": [
+                    {
+                        "currency": "MXN",
+                        "label": "$290,999"
+                    }
+                ],
+                "locations": [
+                    {
+                        "code": "11",
+                        "key": "region",
+                        "label": "Ciudad de México",
+                        "locations": [
+                            {
+                                "code": "295",
+                                "key": "municipality",
+                                "label": "Cuauhtémoc",
+                                "locations": [
+                                    {
+                                        "code": "7669",
+                                        "key": "area",
+                                        "label": "Juárez"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+Response: {
+    "data": {
+        "items": [
+            {
+                "list_id": "/public/ads/939029533",
+                "subject": "204543 - Mazda CX5 2014 Con Garantía",
+                "thumbnail": {
+                    "base_url": "http://img.segundamano.mx",
+                    "media_id": "/public/media/ad/7258449370",
+                    "path": "72/7258449370.jpg"
+                },
+                "prices": [
+                    {
+                        "currency": "MXN",
+                        "label": "$290,999"
+                    }
+                ],
+                "locations": [
+                    {
+                        "code": "11",
+                        "key": "region",
+                        "label": "Ciudad de México",
+                        "locations": [
+                            {
+                                "code": "295",
+                                "key": "municipality",
+                                "label": "Cuauhtémoc",
+                                "locations": [
+                                    {
+                                        "code": "7669",
+                                        "key": "area",
+                                        "label": "Juárez"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+Status response: 200
+Tiempo respuesta: 197
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x1b854a701b67e1102f4d01eb4cf7ade0bdce6076_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Myrl Toy",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic YWdlbnRlX3ZlbnRhc190ZXN0NDA0LjBAbWFpbGluYXRvci5jb206MTIzNDU=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "agente_ventas_test404.0@mailinator.com"
+    }
+}
+{
+    "error": {
+        "code": "ACCOUNT_VERIFICATION_REQUIRED"
+    }
+}
+Response: {
+    "error": {
+        "code": "ACCOUNT_VERIFICATION_REQUIRED"
+    }
+}
+Status response: 401
+Tiempo respuesta: 1150
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xd2ef7261e5a40795f295f6b377f4f4b62342be0d_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Myrl Toy",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xd2ef7261e5a40795f295f6b377f4f4b62342be0d_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Myrl Toy",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xd2ef7261e5a40795f295f6b377f4f4b62342be0d_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	PATCH
+Request URI:	https://webapi.segundamano.mx/nga/api/v1/private/accounts/12828353
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=tag:scmcoord.com,2013:api mc1xd2ef7261e5a40795f295f6b377f4f4b62342be0d_v2
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "professional": false,
+        "phone_hidden": false
+    }
+}
+{
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    }
+}
+Status response: 200
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x06c19d51c5dff0798c00c5fdf10b093a41c667c6_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x06c19d51c5dff0798c00c5fdf10b093a41c667c6_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x06c19d51c5dff0798c00c5fdf10b093a41c667c6_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/v2/accounts/0136a92e-c025-4a64-a4fe-2c5bc828b528/up
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		x-source=PHOENIX_DESKTOP
+				Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXgwNmMxOWQ1MWM1ZGZmMDc5OGMwMGM1ZmRmMTBiMDkzYTQxYzY2N2M2X3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "images": "2265766694.jpg",
+    "category": "4100",
+    "subject": "Ergonomic Concrete Keyboard Wooden yellow",
+    "body": "Compra y venta e intercambio de Ergonomic Concrete Keyboard Wooden yellow",
+    "is_new": "0",
+    "region": "12",
+    "municipality": "316",
+    "area": "69520",
+    "price": "6",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "267-941-5539"
+}
+{
+    "data": {
+        "ad": {
+            "ad_id": "75110731",
+            "subject": "Ergonomic Concrete Keyboard Wooden yellow",
+            "category": {
+                "code": "4100",
+                "label": "Coleccionismo",
+                "parent": {
+                    "code": "4000",
+                    "label": "Tiempo libre"
+                }
+            },
+            "region": {
+                "code": "12",
+                "label": "Durango"
+            },
+            "municipality": {
+                "code": "316",
+                "label": "Indé"
+            },
+            "area": {
+                "code": "69520",
+                "label": "El Calvario"
+            },
+            "price": {
+                "currency": "MXN",
+                "value": 6
+            },
+            "thumbnail": {
+                "base_url": "https://img.segundamano.mx",
+                "path": "22/2265766694.jpg"
+            }
+        },
+        "payment_info": {
+            "payment_required": false,
+            "title": "¡Vende más rápido con los Productos Premium!",
+            "description": "Elige la opción que mejor se ajuste a tus necesidades",
+            "products": [
+                {
+                    "id": "serv_free",
+                    "name": "Anuncio básico",
+                    "label": "Anuncio con exposición regular, tendrás menos visitas",
+                    "description": "Anuncio con exposición regular, tendrás menos visitas",
+                    "price": 0,
+                    "most_popular": false,
+                    "active": true,
+                    "payment_methods": [
+                        "pay_method_tokens"
+                    ]
+                },
+                {
+                    "id": "serv_daily",
+                    "name": "Subir Diario",
+                    "label": "Recibe hasta 5 veces más contactos en 7 días",
+                    "description": "",
+                    "price": 120,
+                    "credits": 120,
+                    "most_popular": false,
+                    "active": true,
+                    "payment_methods": [
+                        "pay_method_credit",
+                        "pay_method_points",
+                        "pay_method_oxxo",
+                        "pay_method_paypal"
+                    ]
+                },
+                {
+                    "id": "serv_premiumpackage_2",
+                    "name": "Subir diario y Posición principal",
+                    "label": "Recibe hasta 12 veces más contactos",
+                    "description": "Sube tu anuncio todos los días durante 7 días y pon tu anuncio en la primera posición durante 3 días",
+                    "price": 220,
+                    "credits": 220,
+                    "most_popular": true,
+                    "active": true,
+                    "tag": {
+                        "slug": "tag_recommended",
+                        "name": "RECOMENDADO"
+                    },
+                    "payment_methods": [
+                        "pay_method_credit",
+                        "pay_method_points",
+                        "pay_method_oxxo",
+                        "pay_method_paypal"
+                    ]
+                }
+            ]
+        }
+    }
+}
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/ad-stats/v1/public/accounts/12828353/ads/75110731
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "list_id": "75110731",
+    "total": {
+        "change": {
+            "views": 0,
+            "phone_views": 0,
+            "mails": 0,
+            "calls": 0,
+            "phone_view_leads": 0
+        },
+        "count": {
+            "interested": 0
+        }
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x8ddee98b931933aa88265a492542ee90606bfa72_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x8ddee98b931933aa88265a492542ee90606bfa72_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x8ddee98b931933aa88265a492542ee90606bfa72_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/v2/accounts/0136a92e-c025-4a64-a4fe-2c5bc828b528/up/75110731
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		x-source=PHOENIX_DESKTOP
+				Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXg4ZGRlZTk4YjkzMTkzM2FhODgyNjVhNDkyNTQyZWU5MDYwNmJmYTcyX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "category": "8143",
+    "subject": "Ergonomic Paper Table Steel silver",
+    "body": "Compra y venta e intercambio de Ergonomic Paper Table Steel silver",
+    "region": "12",
+    "municipality": "316",
+    "area": "69520",
+    "price": "1",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "76013183"
+}
+{
+    "data": {
+        "ad": {
+            "ad_id": "75110731",
+            "subject": "Ergonomic Paper Table Steel silver",
+            "category": {
+                "code": "8143",
+                "label": "Organización de eventos",
+                "parent": {
+                    "code": "8140",
+                    "label": "Eventos",
+                    "parent": {
+                        "code": "8000",
+                        "label": "Servicios"
+                    }
+                }
+            },
+            "region": {
+                "code": "12",
+                "label": "Durango"
+            },
+            "municipality": {
+                "code": "316",
+                "label": "Indé"
+            },
+            "area": {
+                "code": "69520",
+                "label": "El Calvario"
+            },
+            "price": {
+                "currency": "MXN",
+                "value": 1
+            }
+        }
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x6ead52f6dc88ec9575b22b48ebc2b8ad14fad8f6_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x6ead52f6dc88ec9575b22b48ebc2b8ad14fad8f6_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x6ead52f6dc88ec9575b22b48ebc2b8ad14fad8f6_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/alerts/v1/private/account/0136a92e-c025-4a64-a4fe-2c5bc828b528/alert
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXg2ZWFkNTJmNmRjODhlYzk1NzViMjJiNDhlYmMyYjhhZDE0ZmFkOGY2X3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "ad_listing_service_filters": {
+        "region": "16",
+        "category_lv0": "1000",
+        "category_lv1": "1020"
+    }
+}
+{
+    "data": {
+        "alert": {
+            "id": "1c67aa2a-7007-4f89-9b11-029130c9af4f",
+            "title": "Venta inmuebles en Jalisco",
+            "description": "",
+            "url_path": "/anuncios/jalisco/venta-inmuebles",
+            "created_at": "2022-12-14T22:06:09.721626069Z",
+            "filters": {
+                "category": "1020",
+                "region": "16"
+            },
+            "ad_listing_service_filters": {
+                "category_lv0": "1000",
+                "category_lv1": "1020",
+                "region": "16"
+            }
+        }
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xd2cb53f8ab3e364b71d667d5c11a2fbdc92e94e5_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xd2cb53f8ab3e364b71d667d5c11a2fbdc92e94e5_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xd2cb53f8ab3e364b71d667d5c11a2fbdc92e94e5_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/alerts/v1/private/account/0136a92e-c025-4a64-a4fe-2c5bc828b528/alert/1c67aa2a-7007-4f89-9b11-029130c9af4f
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXhkMmNiNTNmOGFiM2UzNjRiNzFkNjY3ZDVjMTFhMmZiZGM5MmU5NGU1X3Yy
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "data": {
+        "status": "ok"
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x2d1b1722fb8e0ddee4ba3f7b769cb55c9b510b3c_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x2d1b1722fb8e0ddee4ba3f7b769cb55c9b510b3c_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x2d1b1722fb8e0ddee4ba3f7b769cb55c9b510b3c_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/addresses/v1/create
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	contact=Debra Pacocha
+				phone=1234567890
+				rfc=XAXX010101000
+				zipCode=11011
+				exteriorInfo=928
+				region=16
+				municipality=670
+				area=12652
+				alias=Dedalus Diggle
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXgyZDFiMTcyMmZiOGUwZGRlZTRiYTNmN2I3NjljYjU1YzliNTEwYjNjX3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "addressID": "861d051e-7bfb-11ed-bc5c-af91ee71c557"
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x467464d234f877e2c055a23330be595f25ef4f58_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x467464d234f877e2c055a23330be595f25ef4f58_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x467464d234f877e2c055a23330be595f25ef4f58_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/addresses/v1/get/861d051e-7bfb-11ed-bc5c-af91ee71c557
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXg0Njc0NjRkMjM0Zjg3N2UyYzA1NWEyMzMzMGJlNTk1ZjI1ZWY0ZjU4X3Yy
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "addresses": {
+        "861d051e-7bfb-11ed-bc5c-af91ee71c557": {
+            "exteriorInfo": "928",
+            "interiorInfo": "",
+            "region": 16,
+            "municipality": 670,
+            "area": 12652,
+            "alias": "Dedalus Diggle",
+            "contact": "Debra Pacocha",
+            "phone": "1234567890",
+            "zipCode": "11011"
+        }
+    }
+}
+Response 1: {
+    "addresses": {
+        "861d051e-7bfb-11ed-bc5c-af91ee71c557": {
+            "exteriorInfo": "928",
+            "interiorInfo": "",
+            "region": 16,
+            "municipality": 670,
+            "area": 12652,
+            "alias": "Dedalus Diggle",
+            "contact": "Debra Pacocha",
+            "phone": "1234567890",
+            "zipCode": "11011"
+        }
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1x33bb2d9f3b4e3767a3075cd822cd30cef4a88c43_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1x33bb2d9f3b4e3767a3075cd822cd30cef4a88c43_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1x33bb2d9f3b4e3767a3075cd822cd30cef4a88c43_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/addresses/v1/modify/861d051e-7bfb-11ed-bc5c-af91ee71c557
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	contact=Izola Feeney
+				phone=1234567890
+				rfc=XAXX010101000
+				zipCode=11011
+				exteriorInfo=59716
+				region=16
+				municipality=670
+				area=12652
+				alias=The Fat Lady
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXgzM2JiMmQ5ZjNiNGUzNzY3YTMwNzVjZDgyMmNkMzBjZWY0YTg4YzQzX3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "message": "861d051e-7bfb-11ed-bc5c-af91ee71c557 modified correctly"
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xfa0079d5a8c93704bde17466000dfdbc14b7dfee_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xfa0079d5a8c93704bde17466000dfdbc14b7dfee_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xfa0079d5a8c93704bde17466000dfdbc14b7dfee_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/addresses/v1/get/861d051e-7bfb-11ed-bc5c-af91ee71c557
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXhmYTAwNzlkNWE4YzkzNzA0YmRlMTc0NjYwMDBkZmRiYzE0YjdkZmVlX3Yy
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "addresses": {
+        "861d051e-7bfb-11ed-bc5c-af91ee71c557": {
+            "exteriorInfo": "59716",
+            "interiorInfo": "",
+            "region": 16,
+            "municipality": 670,
+            "area": 12652,
+            "alias": "The Fat Lady",
+            "contact": "Izola Feeney",
+            "phone": "1234567890",
+            "zipCode": "11011"
+        }
+    }
+}
+Response 2: {
+    "addresses": {
+        "861d051e-7bfb-11ed-bc5c-af91ee71c557": {
+            "exteriorInfo": "59716",
+            "interiorInfo": "",
+            "region": 16,
+            "municipality": 670,
+            "area": 12652,
+            "alias": "The Fat Lady",
+            "contact": "Izola Feeney",
+            "phone": "1234567890",
+            "zipCode": "11011"
+        }
+    }
+}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dmVudGFzMTIzNDU2ODkxMkBtYWlsaW5hdG9yLmNvbToxMjM0NTY=
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "ventas1234568912@mailinator.com"
+    }
+}
+{
+    "access_token": "mc1xe4d367b56a316213e9bd96d96d937f2d6fa9c06b_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Response del token: {
+    "access_token": "mc1xe4d367b56a316213e9bd96d96d937f2d6fa9c06b_v2",
+    "account": {
+        "account_id": "/private/accounts/12828353",
+        "can_publish": true,
+        "email": "ventas1234568912@mailinator.com",
+        "email_verified": true,
+        "locations": [
+            
+        ],
+        "name": "Hoyt Ullrich",
+        "phone": "1234567890",
+        "phone_hidden": false,
+        "professional": false,
+        "rfc": "",
+        "uuid": "0136a92e-c025-4a64-a4fe-2c5bc828b528"
+    },
+    "ad_events": {
+        "24h": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "7d": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        },
+        "total": {
+            "calls": 0,
+            "mails": 0,
+            "phone_view_leads": 0,
+            "phone_views": 0,
+            "views": 0
+        }
+    },
+    "token_type": "tag:scmcoord.com,2013:api"
+}
+Token:mc1xe4d367b56a316213e9bd96d96d937f2d6fa9c06b_v2
+Account ID: /private/accounts/12828353
+UUID: 0136a92e-c025-4a64-a4fe-2c5bc828b528
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/addresses/v1/delete/861d051e-7bfb-11ed-bc5c-af91ee71c557
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Authorization=Basic MDEzNmE5MmUtYzAyNS00YTY0LWE0ZmUtMmM1YmM4MjhiNTI4Om1jMXhlNGQzNjdiNTZhMzE2MjEzZTliZDk2ZDk2ZDkzN2YyZDZmYTljMDZiX3Yy
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+{
+    "message": "861d051e-7bfb-11ed-bc5c-af91ee71c557 deleted correctly"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
